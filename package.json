@@ -1,8 +1,7 @@
 {
   "name": "nba",
   "version": "1.0.0",
-  "description": "This is the front-end part of NBA Champion Prediction.",
-  "directories": {"NBA champion prediction"},
+  "description": "the front-end part of NBA Champion Prediction.",
   "scripts": {
     "dev": "next dev -H 0.0.0.0",
     "build": "next build",
@@ -15,7 +14,7 @@
     "url": "https://github.gatech.edu/CSE6242DVA/NBA.git"
   },
   "keywords": [],
-  "author": "Maosen Ye<mye71@gatech.edu>",
+  "author": "Maosen Ye mye71@gatech.edu",
   "license": "MIT",
   "dependencies": {
     "@chakra-ui/react": "^1.8.6",

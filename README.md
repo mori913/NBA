@@ -1,12 +1,12 @@
 # NBA Champion Prediction
 
-This is the front-end part of NBA Champion Prediction. 
+This is the front-end part of NBA Champion Prediction.
 
 ## Usage
 
 This projects depends on the basic JavaScript package manager of [npm](https://github.com/npm/npm), which means you need to **set up "npm"**.
 
-Then you can start the 
+Then you can start the
 
 ```shell
 git clone https://github.gatech.edu/CSE6242DVA/NBA.git
@@ -14,7 +14,7 @@ cd NBA
 npm run dev
 ```
 
-To deploy the project in cloud, you can run the following commands, and use the  static files under`build`  
+To deploy the project in cloud, you can run the following commands, and use the static files under`build`
 
 ```shell
 npm run build
