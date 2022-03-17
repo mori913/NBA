@@ -3,8 +3,7 @@ import TeamTable from '../components/teamtable'
 const Page = () => {
   return (
     <Container maxW="Container.lg">
-      <Heading>NBA Champion prediction</Heading>
-      <Container maxW="Container.lg" p={20}>
+      <Container maxW="Container.lg" p={20} pt={20}>
         <Box>
           <AspectRatio ratio={16 / 9}>
             <iframe

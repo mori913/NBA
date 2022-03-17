@@ -17,6 +17,7 @@
   "author": "Maosen Ye mye71@gatech.edu",
   "license": "MIT",
   "dependencies": {
+    "@chakra-ui/icons": "^1.1.7",
     "@chakra-ui/react": "^1.8.6",
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
@@ -28,6 +29,7 @@
   "devDependencies": {
     "eslint": "^8.11.0",
     "eslint-config-next": "^12.1.0",
-    "prettier": "^2.5.1"
+    "prettier": "^2.5.1",
+    "react-icons": "^4.3.1"
   }
 }
