@@ -69,11 +69,11 @@ const Navbar = props => {
           flexGrow={1}
           mt={{ base: 4, md: 0 }}
         >
-          <LinkItem href="/team" path={path}>
-            Team
+          <LinkItem href="/teams" path={path}>
+            Teams
           </LinkItem>
-          <LinkItem href="/player" path={path}>
-            Player
+          <LinkItem href="/players" path={path}>
+            Players
           </LinkItem>
           <LinkItem
             target="_blank"
@@ -91,8 +91,8 @@ const Navbar = props => {
 
         <Box flex={1} align="right">
 
-          <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
-            <Menu isLazy id="navbar-menu">
+          <Box ml={2} display={{ base: 'inline-block', md: 'none' }} bg="#FFFFFF" borderRadius = "lg">
+            <Menu isLazy id="navbar-menu" >
               <MenuButton
                 as={IconButton}
                 icon={<HamburgerIcon />}
@@ -103,11 +103,11 @@ const Navbar = props => {
                 <NextLink href="/" passHref>
                   <MenuItem as={Link}>Homepage</MenuItem>
                 </NextLink>
-                <NextLink href="/team" passHref>
-                  <MenuItem as={Link}>Team</MenuItem>
+                <NextLink href="/teams" passHref>
+                  <MenuItem as={Link}>Teams</MenuItem>
                 </NextLink>
-                <NextLink href="/player" passHref>
-                  <MenuItem as={Link}>Player</MenuItem>
+                <NextLink href="/players" passHref>
+                  <MenuItem as={Link}>Players</MenuItem>
                 </NextLink>
                 <MenuItem
                   as={Link}

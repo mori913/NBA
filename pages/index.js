@@ -1,4 +1,5 @@
 import { Container, Box, Heading, AspectRatio } from '@chakra-ui/react'
+import Slider from '../components/slider'
 import TeamTable from '../components/teamtable'
 const Page = () => {
   return (
@@ -12,6 +13,8 @@ const Page = () => {
             />
           </AspectRatio>
         </Box>
+          
+        <Slider/>
       </Container>
       <TeamTable />
     </Container>
