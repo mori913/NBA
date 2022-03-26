@@ -27,7 +27,7 @@ const Logo = () => {
         <LogoBox>
           <Image src={footPrintImg} width={30} height={20} alt="logo" />
           <Text pl={1}
-            color="gray.800"
+            color="#F6F6F6"
             fontFamily='M PLUS Rounded 1c", sans-serif'
             fontWeight="bold"
             ml={3}

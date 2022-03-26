@@ -5,7 +5,7 @@ import teammap from '/lib/teammap'
 const TeamTable = () => {
   //  console.log(teammap)
   return (
-    <Table variant="simple">
+    <Table variant="simple" bg="#FFFFFF">
       <Thead>
         <Tr>
           <Th></Th>

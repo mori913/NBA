@@ -9,7 +9,7 @@ const Main = ({ children, router }) => {
         <title>NBA Champion Prediction</title>
       </Head>
         <Navbar path ={router.asPath}/>
-      <Container maxW="container.lg">{children}</Container>
+      <Container maxW="container.lg" bg="#F6F6F6">{children}</Container>
       <Footer/>
     </Box>
   )

@@ -18,13 +18,13 @@ import { IoLogoGithub } from 'react-icons/io5'
 
 const LinkItem = ({ href, path, target, children, ...props }) => {
   const active = path === href
-  const inactiveColor = 'gray200'
+  const inactiveColor = '#F6F6F6'
   return (
     <NextLink href={href} passHref scroll={false}>
       <Link
         p={2}
         bg={active ? 'grassTeal' : undefined}
-        color={active ? '#202023' : inactiveColor}
+        color={active ? '#F6F6F6' : inactiveColor}
         target={target}
         {...props}
       >
@@ -42,7 +42,7 @@ const Navbar = props => {
       position="fixed"
       as="nav"
       w="100%"
-      bg={'#ffffff40'}
+      bg={'#051C2D'}
       css={{ backdropFilter: 'blur(10px)' }}
       zIndex={1}
       {...props}
