@@ -15,8 +15,8 @@ const TeamTable = () => {
   //  console.log(teammap)
   return (
     <Container maxW="container.lg">
-      <Heading as="h3" size="md">
-        Team Score
+      <Heading as="h3" size="md" pb="4">
+        NBA Champion Prediction 2022
       </Heading>
       <Table variant="simple" bg="#FFFFFF" borderRadius="xl">
         <Thead>
