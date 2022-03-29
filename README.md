@@ -24,7 +24,8 @@ npm run build
 
 - [Next.js](https://nextjs.org/) - A React framework with hybrid static & server rendering, and route pre-fetching, etc.
 - [Chakra UI](https://chakra-ui.com/) - A simple, modular and accessible component library for React
-- [D3](https://chakra-ui.com/) - A simple, modular and accessible component library for React
+- [D3.js](https://d3js.org/) -*D3*.*js* is a JavaScript library for manipulating documents based on data.
+- [NBA.js](https://github.com/kshvmdn/nba.js) - A Node.js library for current and historical NBA stats, scores, and data.
 
 ## Project structure
 

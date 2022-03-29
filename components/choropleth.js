@@ -97,37 +97,36 @@ function drawChart(svgRef) {
             }
           })
 
-        // Map the cities I have lived in!
-        d3.csv('cities-lived.csv').then(function (data) {
+        
 
+        d3.csv('NBA_Clubs_Location_Economy.csv').then(function(data){
           tip.html(function(d){
-            return "Country"
+            let club = d.originalTarget.__data__
+            return club["Club name"]
           })
 
-          svg
-            .selectAll('circle')
-            .data(data)
-            .enter()
-            .append('circle')
-            .attr('cx', function (d) {
-              return projection([d.lon, d.lat])[0]
-            })
-            .attr('cy', function (d) {
-              return projection([d.lon, d.lat])[1]
-            })
-            .attr('r', function (d) {
-              return Math.sqrt(d.years) * 4
-            })
-            .style('fill', 'rgb(217,91,67)')
-            .style('opacity', 0.85)
-            .call(tip)
-
-            // Modification of custom tooltip code provided by Malcolm Maclean, "D3 Tips and Tricks"
-            // http://www.d3noob.org/2013/01/adding-tooltips-to-d3js-graph.html
-            .on('mouseover', tip.show)
-
-            // fade out tooltip on mouse out
-            .on('mouseout', tip.hide)
+          let filter_data = data.filter(function(d){
+            if(d.Year == "2015"){
+              return d;
+            }
+            
+          })
+          console.log(filter_data)
+          svg.selectAll('circle').data(filter_data).enter()
+          .append('circle').attr('cx', function(d){
+              let lat = parseFloat(d.Latitude)
+              let lon = parseFloat(d.Longitude)
+              return projection([lon, lat])[0]
+          }).attr('cy', function(d){
+            let lat = parseFloat(d.Latitude)
+            let lon = parseFloat(d.Longitude)
+            return projection([lon, lat])[1]
+          }).attr('r', 10).style('fill', 'rgb(217,91,67)')
+          .style('opacity', 0.85)
+          .call(tip)
+          .on('mouseover', tip.show)
+          // fade out tooltip on mouse out
+          .on('mouseout', tip.hide);
         })
 
         // Modified Legend Code from Mike Bostock: http://bl.ocks.org/mbostock/3888852
