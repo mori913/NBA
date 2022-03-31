@@ -20,7 +20,7 @@ const PlayerTable = ({columns, data}) => {
   const [players, setPlayers] = useState([])
 
   useEffect(() => {
-    d3.json('http://data.nba.net/data/10s/prod/v1/2019/players.json')
+    d3.json('https://data.nba.net/data/10s/prod/v1/2019/players.json')
       .then(function (d) {
         setIsLoaded(true)
         const data = d.league.standard.filter(elem => elem.teamId > 0)
