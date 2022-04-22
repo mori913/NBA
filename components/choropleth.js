@@ -44,7 +44,7 @@ function drawChart(svgRef) {
     .attr('height', height)
 
   // Append Div for tooltip to SVG
-  var tip = d3.tip().attr("id", "tooltip").attr('class', 'd3-tip');
+  var tip = d3.tip().attr("id", "tooltip").attr('class', 'd3-tip').style("background", "#2d3748").style("color","white");
 
   // Load in my states data!
   d3.csv('stateslived.csv').then(function (data) {
@@ -104,6 +104,7 @@ function drawChart(svgRef) {
             console.log(d)
              let club = d.target.__data__
              return club["Club name"]
+            // return <Container><Text>club["Club name"]</Text></Container>
           })
 
           let filter_data = data.filter(function(d){
@@ -112,7 +113,7 @@ function drawChart(svgRef) {
             }
             
           })
-          console.log(filter_data)
+          // console.log(filter_data)
           svg.selectAll('circle').data(filter_data).enter()
           .append('circle').attr('cx', function(d){
               let lat = parseFloat(d.Latitude)

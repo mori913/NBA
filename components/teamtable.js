@@ -10,9 +10,23 @@ import {
 } from '@chakra-ui/react'
 import { Image } from '@chakra-ui/react'
 import teammap from '/lib/teammap'
+import result from '/public/result'
+import React from 'react'
+
 
 const TeamTable = () => {
   //  console.log(teammap)
+  let possibility = result.filter(elem=>elem.year === 21);
+  Object.keys(teammap).map(key=>{
+    const fullname = teammap[key].city + " " + teammap[key].team;   
+    let predict_result = possibility.find(elem=>elem.TEAM == fullname);
+    predict_result["key"] = key;
+    predict_result["city"] = teammap[key].city;
+    predict_result['team'] = teammap[key].team;
+  })
+  possibility.sort((a,b)=>{
+    return b.prediction - a.prediction;
+  })
   return (
     <Container maxW="container.lg">
       <Heading as="h3" size="md" pb="4">
@@ -24,12 +38,16 @@ const TeamTable = () => {
             <Th>Team</Th>
             <Th></Th>
             <Th>City</Th>
-            <Th isNumeric>Score</Th>
+            <Th>GDP($)</Th>
+            <Th>possibility</Th>
           </Tr>
         </Thead>
         <Tbody>
-          {Object.keys(teammap).map(key => {
+          {/* {Object.keys(teammap).map(key => {
             const img = "teams/"+key+".png"
+            const fullname = teammap[key].city + " " + teammap[key].team;
+            const predict_result = possibility.find(elem=>elem.TEAM == fullname).prediction*100;
+            const percentage_result = Math.round(predict_result) +"%";
             return (
               <Tr key={key}>
                 <Td>
@@ -37,15 +55,36 @@ const TeamTable = () => {
                     borderRadius="full"
                     boxSize="60px"
                     src = {img}
-                    alt="Dan Abramov"
                   />
                 </Td>
                 <Td>{teammap[key].team}</Td>
                 <Td>{teammap[key].city}</Td>
-                <Td>1</Td>
+                <Td>{percentage_result}</Td>
               </Tr>
             )
-          })}
+          })} */}
+          {
+            possibility.map((val, index) => {
+              console.log(val)
+              const img = "teams/"+val["key"]+".png";
+              const percentage_result = Math.round(val["prediction"]*100) +"%";
+                          return (
+              <Tr key={index}>
+                <Td>
+                  <Image
+                    borderRadius="full"
+                    boxSize="60px"
+                    src = {img}
+                  />
+                </Td>
+                <Td>{val["city"]}</Td>
+                <Td>{val["team"]}</Td>
+                <Td>{val["GDP"]}</Td>
+                <Td>{percentage_result}</Td>
+              </Tr>
+            )
+            })
+          }
         </Tbody>
       </Table>
     </Container>
