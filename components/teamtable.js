@@ -38,34 +38,15 @@ const TeamTable = () => {
             <Th>Team</Th>
             <Th></Th>
             <Th>City</Th>
-            <Th>GDP($)</Th>
+            <Th>GDP($Million)</Th>
             <Th>possibility</Th>
           </Tr>
         </Thead>
         <Tbody>
-          {/* {Object.keys(teammap).map(key => {
-            const img = "teams/"+key+".png"
-            const fullname = teammap[key].city + " " + teammap[key].team;
-            const predict_result = possibility.find(elem=>elem.TEAM == fullname).prediction*100;
-            const percentage_result = Math.round(predict_result) +"%";
-            return (
-              <Tr key={key}>
-                <Td>
-                  <Image
-                    borderRadius="full"
-                    boxSize="60px"
-                    src = {img}
-                  />
-                </Td>
-                <Td>{teammap[key].team}</Td>
-                <Td>{teammap[key].city}</Td>
-                <Td>{percentage_result}</Td>
-              </Tr>
-            )
-          })} */}
+
           {
             possibility.map((val, index) => {
-              console.log(val)
+              // console.log(val)
               const img = "teams/"+val["key"]+".png";
               const percentage_result = Math.round(val["prediction"]*100) +"%";
                           return (

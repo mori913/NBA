@@ -8,35 +8,36 @@ import {
 } from '@chakra-ui/react'
 import React from 'react'
 
-function SliderThumbWithTooltip() {
-  const [sliderValue, setSliderValue] = React.useState(5)
+function SliderThumbWithTooltip({year, setyear}) {
+  const [sliderValue, setSliderValue] = React.useState(2022)
   const [showTooltip, setShowTooltip] = React.useState(false)
   return (
     <Slider
       id="slider"
-      defaultValue={5}
-      min={0}
-      max={100}
-      step={12.5}
+      defaultValue={2022}
+      min={2015}
+      max={2022}
+      step={1}
       colorScheme="linkedin"
-      onChange={v => setSliderValue(v)}
+      onChange={v =>{
+        setSliderValue(v);
+        setyear(v);
+      }
+      }
       onMouseEnter={() => setShowTooltip(true)}
       onMouseLeave={() => setShowTooltip(false)}
     >
-      <SliderMark value={0} mt="2" ml="-2.5" fontSize="sm">
-        2014
+      <SliderMark value={2015} mt="2" ml="-2.5" fontSize="sm">
+        2015
       </SliderMark>
-      <SliderMark value={25} mt="2" ml="-2.5" fontSize="sm">
-        2016
+      <SliderMark value={2017} mt="2" ml="-2.5" fontSize="sm">
+        2017
       </SliderMark>
-      <SliderMark value={50} mt="2" ml="-2.5" fontSize="sm">
-        2018
+      <SliderMark value={2019} mt="2" ml="-2.5" fontSize="sm">
+        2019
       </SliderMark>
-      <SliderMark value={75} mt="2" ml="-2.5" fontSize="sm">
-        2020
-      </SliderMark>
-      <SliderMark value={100} mt="2" ml="-2.5" fontSize="sm">
-        2022
+      <SliderMark value={2021} mt="2" ml="-2.5" fontSize="sm">
+        2021
       </SliderMark>
       <SliderTrack>
         <SliderFilledTrack />
@@ -47,7 +48,7 @@ function SliderThumbWithTooltip() {
         color="white"
         placement="top"
         isOpen={showTooltip}
-        label={`${sliderValue/12.5+2014}`}
+        label={`${sliderValue}`}
       >
         <SliderThumb />
       </Tooltip>

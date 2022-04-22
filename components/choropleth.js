@@ -1,14 +1,15 @@
 import * as React from 'react'
 import * as d3module from 'd3'
 import d3tip from 'd3-tip'
-import { Container } from '@chakra-ui/react'
+import result from '/public/result'
+import { Container,UnorderedList, ListItem } from '@chakra-ui/react'
 const d3 = {
   ...d3module,
   tip: d3tip
 }
 
 
-function drawChart(svgRef) {
+function drawChart(svgRef,year) {
   //Width and height of map
   var width = 960
   var height = 500
@@ -44,7 +45,12 @@ function drawChart(svgRef) {
     .attr('height', height)
 
   // Append Div for tooltip to SVG
-  var tip = d3.tip().attr("id", "tooltip").attr('class', 'd3-tip').style("background", "#2d3748").style("color","white");
+  
+  var tip = d3.tip().attr("id", "tooltip").attr('class', 'd3-tip').style("display", "flex")
+  .style("box-shadow","0 10px 15px -3px rgba(0, 0, 0, .1), 0 4px 6px -2px rgba(0, 0, 0, .05)")
+  .style("flex-direction","column")
+  .style("background","white")
+  .style("padding","15px 15px");
 
   // Load in my states data!
   d3.csv('stateslived.csv').then(function (data) {
@@ -100,12 +106,14 @@ function drawChart(svgRef) {
         
 
         d3.csv('NBA_Clubs_Location_Economy.csv').then(function(data){
-          tip.html(function(d){
-            console.log(d)
-             let club = d.target.__data__
-             return club["Club name"]
-            // return <Container><Text>club["Club name"]</Text></Container>
-          })
+          tip.html(d => `
+          <div class="tip">
+            <strong> ${d.target.__data__["Club name"]}</strong>
+            <br>GDP $Millon: ${d.target.__data__["Metro GDP in $Millon"]}
+            <br>Possibility: ${year}
+          </div>
+        `)
+
 
           let filter_data = data.filter(function(d){
             if(d.Year == "2015"){
@@ -113,11 +121,15 @@ function drawChart(svgRef) {
             }
             
           })
-          // console.log(filter_data)
+          console.log(filter_data)
           svg.selectAll('circle').data(filter_data).enter()
           .append('circle').attr('cx', function(d){
               let lat = parseFloat(d.Latitude)
               let lon = parseFloat(d.Longitude)
+              // console.log(d.Abbreviation)
+              if(d.Abbreviation =="BKN" || d.Abbreviation == "LAC"){
+                lat = lat - 3
+              }
               return projection([lon, lat])[0]
           }).attr('cy', function(d){
             let lat = parseFloat(d.Latitude)
@@ -170,10 +182,10 @@ function drawChart(svgRef) {
   })
 }
 
-const Chart = () => {
+const Chart = ({year}) => {
   const svg = React.useRef(null)
-  React.useEffect(() => {
-    drawChart(svg)
+  React.useEffect((year) => {
+    drawChart(svg,year)
   }, [svg])
 
   return (
