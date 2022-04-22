@@ -37,7 +37,7 @@ function drawChart(svgRef, year) {
       'rgb(217,91,67)'
     ])
 
-  var legendText = ['>=30%', '20-30%', '10-20%', '<10%']
+  var legendText = ['>=6%', '4-6%', '2-4%', '<2%']
 
   //Create SVG element and append map to the SVG
   const svg = d3
@@ -137,11 +137,11 @@ function drawChart(svgRef, year) {
               });
 
               const average = total/count;
-              if(average >= 30){
+              if(average >= 6){
                 d.properties.color = 3;
-              }else if(average>= 20){
+              }else if(average>= 4){
                 d.properties.color =2;
-              }else if(average >=10){
+              }else if(average >=2){
                 d.properties.color =1;
               }else{
                 d.properties.color = 0;

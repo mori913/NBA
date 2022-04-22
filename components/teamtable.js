@@ -48,7 +48,7 @@ const TeamTable = () => {
             possibility.map((val, index) => {
               // console.log(val)
               const img = "teams/"+val["key"]+".png";
-              const percentage_result = Math.round(val["prediction"]*100) +"%";
+              const percentage_result = Math.round(val["prediction"]*10000)/100 +"%";
                           return (
               <Tr key={index}>
                 <Td>

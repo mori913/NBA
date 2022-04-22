@@ -74,7 +74,7 @@ const Players = () => {
         <Select placeholder="2022" bg="#FFF"></Select>
         <Input placeholder="Search Players" bg="#FFF" />
       </SimpleGrid>
-        <PlayerTable columns={columns} data = {players} />
+        <PlayerTable columns={columns}  />
         <Box
           px={{
             base: '4',
