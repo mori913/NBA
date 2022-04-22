@@ -20,9 +20,9 @@ import * as d3 from 'd3'
 
 const Players = () => {
 
-  const [error, setError] = useState(null)
-  const [isLoaded, setIsLoaded] = useState(false)
-  const [players, setPlayers] = useState([])
+  // const [error, setError] = useState(null)
+  // const [isLoaded, setIsLoaded] = useState(false)
+  // const [players, setPlayers] = useState([])
 
   // useEffect(() => {
   //   d3.json('http://data.nba.net/data/10s/prod/v1/2019/players.json')

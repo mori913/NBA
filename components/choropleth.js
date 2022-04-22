@@ -101,8 +101,9 @@ function drawChart(svgRef) {
 
         d3.csv('NBA_Clubs_Location_Economy.csv').then(function(data){
           tip.html(function(d){
-            let club = d.originalTarget.__data__
-            return club["Club name"]
+            console.log(d)
+             let club = d.target.__data__
+             return club["Club name"]
           })
 
           let filter_data = data.filter(function(d){
