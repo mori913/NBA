@@ -8,8 +8,10 @@ const d3 = {
   tip: d3tip
 }
 
-let predict_result = result.filter(d => d.year === 21)
+// let predict_result = result.filter(d => d.year === 21)
 function drawChart(svgRef, year) {
+  let predict_result = result.filter(d => d.year === year%100 -1)
+  // console.log(year)
   //Width and height of map
   var width = 960
   var height = 500
@@ -96,7 +98,7 @@ function drawChart(svgRef, year) {
           val['state'] = state
           //
         })
-        console.log(filter_data)
+        // console.log(filter_data)
         json.features.map(d => {
           d.properties.predictions = []
         })
@@ -104,11 +106,11 @@ function drawChart(svgRef, year) {
         for (var i = 0; i < filter_data.length; i++) {
           // Grab State Name
           var dataState = filter_data[i].state
-          console.log(dataState)
+          // console.log(dataState)
 
           // Grab data value
           var dataValue = filter_data[i].prediction
-          console.log(dataValue)
+          // console.log(dataValue)
 
           // Find the corresponding state inside the GeoJSON
           for (var j = 0; j < json.features.length; j++) {
@@ -146,7 +148,7 @@ function drawChart(svgRef, year) {
               }
             }
           })
-          console.log(json.features)
+          // console.log(json.features)
         }
 
         // Bind the data to the SVG and create one path per GeoJSON feature
@@ -240,13 +242,17 @@ function drawChart(svgRef, year) {
   )
 }
 
-const Chart = ({ year }) => {
+const Chart = ({year}) => {
+  // console.log(year)
+  const date = year;
   const svg = React.useRef(null)
   React.useEffect(
-    year => {
-      drawChart(svg, year)
+    () => {
+      console.log(date)
+      d3.select("#chart").selectAll("*").remove();
+      drawChart(svg, date)
     },
-    [svg]
+    [{svg,date}]
   )
 
   return (
