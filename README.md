@@ -11,6 +11,7 @@ Then you can start the
 ```shell
 git clone https://github.gatech.edu/CSE6242DVA/NBA.git
 cd NBA
+npm install
 npm run dev
 ```
 
